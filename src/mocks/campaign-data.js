@@ -29,6 +29,7 @@ function generateData(num) {
     impressions: Math.ceil(imps),
     clicks: Math.floor(clicks),
     users: Math.floor(users),
+    ctr: ctr.toFixed(4),
   };
 }
 

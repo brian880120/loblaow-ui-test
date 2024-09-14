@@ -3,7 +3,6 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { useQuery } from '@tanstack/react-query';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import CampaginDetails from './CampaignDetails';
-import { fetchCampaignDetails } from '../utils/request';
 
 vi.mock('@tanstack/react-query', () => ({
   useQuery: vi.fn(),
@@ -37,6 +36,7 @@ describe('CampaginDetails', () => {
       impressions: 1000,
       clicks: 50,
       users: 200,
+      ctr: 0.014,
     };
 
     useQuery.mockReturnValue({
@@ -61,6 +61,8 @@ describe('CampaginDetails', () => {
       expect(screen.getByText('50')).toBeDefined();
       expect(screen.getByText('Users')).toBeDefined();
       expect(screen.getByText('200')).toBeDefined();
+      expect(screen.getByText('CTR')).toBeDefined();
+      expect(screen.getByText('0.014')).toBeDefined();
     });
   });
 
